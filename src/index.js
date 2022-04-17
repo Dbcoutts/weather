@@ -31,7 +31,7 @@ function formatDate(date) {
   let dateToday = now.getDate();
   return `${day}, ${month} ${dateToday}, ${year}`;
 }
-let currentDate = document.querySelector("h2");
+let currentDate = document.querySelector("#date-now");
 currentDate.innerHTML = formatDate(now);
 
 function formatTime(now) {
@@ -46,7 +46,7 @@ function formatTime(now) {
   return `${hours}:${minutes}`;
 }
 
-let currentTime = document.querySelector("h3");
+let currentTime = document.querySelector("#time");
 currentTime.innerHTML = formatTime(now);
 
 function search(event) {
