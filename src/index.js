@@ -1,3 +1,10 @@
+let fruits = [
+  "src/img/snow.jpg",
+  "src/img/rain.jpg",
+  "src/img/sun.jpg",
+  "src/img/cloudy.jpg",
+];
+
 let now = new Date();
 function formatDate(date) {
   let currentDay = now.getDay();
@@ -61,11 +68,24 @@ function displayWeather(response) {
   city.innerHTML = `${response.data.name}`;
   let temperature = Math.round(response.data.main.temp);
   let weather = document.querySelector("#discription");
+  let changeImage = document.querySelector("#picture");
   weather.innerHTML = `${response.data.weather[0].main}`;
-
+  if (`${response.data.weather[0].main}` === "Snow") {
+    changeImage.setAttribute("src", fruits[0]);
+  }
+  if (`${response.data.weather[0].main}` === "Rain") {
+    changeImage.setAttribute("src", fruits[1]);
+  }
+  if (`${response.data.weather[0].main}` === "Clear") {
+    changeImage.setAttribute("src", fruits[2]);
+  }
+  if (`${response.data.weather[0].main}` === "Clouds") {
+    changeImage.setAttribute("src", fruits[3]);
+  }
   let temp = document.querySelector("#temp");
   temp.innerHTML = `${temperature}`;
 }
+
 function retrievePosition(position) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let lat = position.coords.latitude;

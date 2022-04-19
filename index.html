@@ -10,22 +10,32 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="src/style.css" />
   </head>
 
 
   <body>		
-  <h1 id = "city"></h1>
-	<h1 id = "temp"></h1>
-  <h1 id = "discription"></h1>
 <div class="container">
-	
-	
+		
+		<div class=><img class id="picture" src="src/img/cloudy.jpg" /></div>
+		<br /> 
+  <div class= "row">
+    <div class="col-6">
+    <h1 id = "city">Calgary</h1>
+    <ul>
+    <li id = "discription">Cloudy</li>
+    </ul>
+    </div>
+    <div class="col-6">
+	  <strong id="temp">9</strong
+                  ><span class="units"
+                    ><a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a></span
+                  >
+  </div>
   
-    
-		<div class="picture"><img src="src/weather.jpg" /></div>
-		<br />
-
+</div>
   <div class="row">
     <div class="col" id ="monday">
       <strong>Monday</strong>
