@@ -66,10 +66,14 @@ function search(event) {
 function displayWeather(response) {
   let city = document.querySelector("#city");
   city.innerHTML = `${response.data.name}`;
+  let humidity = document.querySelector("#hum");
+  humidity.innerHTML = `  Humidity: ${response.data.main.humidity}%`;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = `  Wind Speed: ${response.data.wind.speed}km/h`;
   let temperature = Math.round(response.data.main.temp);
-  let weather = document.querySelector("#discription");
+  let weather = document.querySelector("#description");
   let changeImage = document.querySelector("#picture");
-  weather.innerHTML = `${response.data.weather[0].main}`;
+  weather.innerHTML = `Currently: ${response.data.weather[0].main}`;
   if (`${response.data.weather[0].main}` === "Snow") {
     changeImage.setAttribute("src", fruits[0]);
   }

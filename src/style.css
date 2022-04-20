@@ -1,27 +1,47 @@
 body {
   background: #142d4c;
 }
-
-.temp {
-  color: red;
+.overviewTemperature {
+  text-align: left;
 }
-
 h1 {
-  text-align: center;
-
-  margin: 20px 0px;
+  margin-left: 50px;
 }
-.container {
-  border: 2px solid;
-  border-radius: 10px;
+.row {
+  text-align: center;
+}
+li {
+  list-style: none;
+  text-align: justify;
+  margin-left: 30px;
+}
+.weekly {
+  margin-bottom: 10px;
+}
+.temp {
+  font-weight: 400;
+  margin-left: 10px;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 1;
+}
+.units {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+  position: relative;
+  line-height: 1;
+  top: -34px;
 }
 .container {
   background: #ececec;
   padding-top: 30px;
   width: 600px;
   height: 800px;
-  margin-left: 300px;
+  margin-left: 459px;
   margin-bottom: 20px;
+  border: 2px solid;
+  border-radius: 10px;
 }
 
 img {
@@ -31,21 +51,10 @@ img {
   border-radius: 10px;
   opacity: 5;
 }
-h2,
-h3 {
-  text-align: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-h2 {
-  margin-bottom: 2px;
-}
-h3 {
-  margin-top: 2px;
-}
 
-.col {
-  padding: 20px;
-  display: block;
-  margin: auto 0;
+.searchingButtons {
+  margin-top: 10px;
+}
+.srcCode {
+  text-decoration: none;
 }
