@@ -68,9 +68,6 @@ function displayWeather(response) {
   city.innerHTML = `${response.data.name}`;
   let humidity = document.querySelector("#hum");
   humidity.innerHTML = `  Humidity: ${response.data.main.humidity}%`;
-  let wind = document.querySelector("#wind");
-  wind.innerHTML = `  Wind Speed: ${response.data.wind.speed}km/h`;
-  let temperature = Math.round(response.data.main.temp);
   let weather = document.querySelector("#description");
   let changeImage = document.querySelector("#picture");
   weather.innerHTML = `Currently: ${response.data.weather[0].main}`;
@@ -87,7 +84,20 @@ function displayWeather(response) {
     changeImage.setAttribute("src", fruits[3]);
   }
   let temp = document.querySelector("#temp");
+  let temperature = Math.round(response.data.main.temp);
   temp.innerHTML = `${temperature}`;
+
+  let wind = document.querySelector("#wind");
+  let windSpeed = Math.round(response.data.wind.speed);
+  wind.innerHTML = `  Wind Speed: ${windSpeed}km/h`;
+
+  let iconElement = document.querySelector("#icon");
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function retrievePosition(position) {
