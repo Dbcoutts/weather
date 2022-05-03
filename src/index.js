@@ -63,6 +63,12 @@ function search(event) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${searchInput.value}`;
 }
+function getForecast(coordinates) {
+  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeather(response) {
   let city = document.querySelector("#city");
   city.innerHTML = `${response.data.name}`;
@@ -98,6 +104,42 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
+}
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#weekdayForecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+  
+    <div class="col">
+    <span>
+      <strong>${formatDay(forecastDay.dt)}</strong>
+      <br />
+       ${Math.round(forecastDay.temp.min)}
+       </span>
+    </div>
+    
+  `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function retrievePosition(position) {
